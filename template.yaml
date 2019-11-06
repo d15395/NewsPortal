@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Baeldung Serverless Application Model example
+
+Resources:
+  NewsVisualizationFunction:
+    Type: AWS::Serverless::Function
+    AutoPublishAlias: live
+    Properties:
+      Handler: com.tesseract.news.handlers.NewsVisualizationHandler::handleRequest
+      Runtime: java8
+      Timeout: 15
+      MemorySize: 512
+      Environment:
+        Variables:
+          Region: !Ref AWS::Region
+
